@@ -8,9 +8,9 @@ junto = "".join(palavras)
 # Inverte a string usando fatiamento (slice), que é bem rápido em Python
 inverso = junto[::-1]
 
-print(f'O inverso de {junto} é {inverso}.')
+print(f'A palavra {junto} ao contrario é {inverso}.')
 
 if inverso == junto:
-    print('Temos um PALÍNDROMO!')
+    print('A frase digitada é um Palíndromo!')
 else:
     print('A frase digitada NÃO é um palíndromo!')
