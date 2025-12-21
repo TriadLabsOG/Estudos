@@ -1,0 +1,2 @@
+ALT + Z = Toggle quebra de linha automatica
+CTRL + B = Toggle barra lateral
