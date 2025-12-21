@@ -10,8 +10,6 @@ for i in range (1, 5):
     lista_idade.append(idade)
     idade_total = sum(lista_idade)  
     maior_idade = max(lista_idade)
-if maior_idade < idade_total:
-    print(f'O homem mais velho tem {maior_idade} e se chama {nome_do_mais_velho}')
 media = idade_total / 4
 print(f'A media de idade do gruo é de {media} anos')
 
