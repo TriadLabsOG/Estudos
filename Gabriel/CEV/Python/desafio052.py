@@ -1,6 +1,7 @@
 #Exercício Python 052: Faça um programa que leia um número inteiro e diga se ele é ou não um número primo.
 
-num = int(input('Digite um número: '))
+# ANTIG0
+'''num = int(input('Digite um número: '))
 
 if num > 1:
 
@@ -24,3 +25,4 @@ if num > 1:
           print('O número é primo')
 else:
      print('O número não é primo')
+'''
