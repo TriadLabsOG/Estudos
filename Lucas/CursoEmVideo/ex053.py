@@ -1,6 +1,16 @@
 # Exercício Python 53: Crie um programa que leia uma frase qualquer e diga se ela é um palíndromo, desconsiderando os espaços
-frase = int(input('Digite uma palavra: '))
-for c in range(1):
-    frase_invertida = "".join(reversed(frase))
-    if frase == frase_invertida:
-        print(f'A frase {frase} ao contrario é igual: {frase_invertida}')
+frase = str(input('Digite uma frase: ')).strip().upper()
+
+# Divide a frase em palavras e junta tudo sem espaços
+palavras = frase.split()
+junto = "".join(palavras)
+
+# Inverte a string usando fatiamento (slice), que é bem rápido em Python
+inverso = junto[::-1]
+
+print(f'O inverso de {junto} é {inverso}.')
+
+if inverso == junto:
+    print('Temos um PALÍNDROMO!')
+else:
+    print('A frase digitada NÃO é um palíndromo!')
