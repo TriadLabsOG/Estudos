@@ -17,10 +17,18 @@ altura = float(input('Digite sua altura (cm): '))
 # Logica
     # Converter altura para metros
 
-altura_em_metros = 0
+altura_em_metros = altura / 100
 
     # IMC
-imc = peso / altura_em_metros ** 2
-
+#imc = peso / altura_em_metros ** 2
+imc = 18.50
 
 print(f'Seu IMC é {imc}')
+if imc < 18.5:
+    print('Você esta abaixo do peso')
+elif imc <= 30:
+    print('Você está no peso ideal')
+elif imc <= 40:
+    print('Você está lidando com sobrepeso')
+elif imc > 40:
+    print('Você esta em obesidade mórbida')
