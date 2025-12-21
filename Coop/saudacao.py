@@ -8,3 +8,4 @@ Dev B: Dá git pull. Abre o arquivo e adiciona uma linha extra perguntando "Como
 Dev A: Dá git pull para ver a atualização.'''
 
 nome = input('Digite o seu nome: ')
+print(f'Olá, {nome}. Como você está hoje?')
