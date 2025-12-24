@@ -17,7 +17,7 @@ def media(lista):
         ValueError: Se a lista estiver vazia
     '''
     if lista == []:
-        raise ValueError('A lista não pode estar vazia')
+        raise ValueError('Nenhuma nota entre 0 e 10 encontrada na lista')
     return sum(lista) / len(lista)
 
 lista_notas = [10, 20, 30, 2, 3, 4, 1.2]
