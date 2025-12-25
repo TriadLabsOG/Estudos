@@ -20,3 +20,14 @@ print('PRODUTOS MAIS CAROS QUE 50 REAIS')
 for produto in produtos_varejo:
     if produtos_varejo[produto] > 50:
         print(f'{produto}: {produtos_varejo[produto]}')
+
+def buscador_de_produtos(lista_produtos, produto_procurado):
+    
+    for produto in lista_produtos:
+        if produto == produto_procurado:
+            return True
+    return False
+
+
+    
+print(buscador_de_produtos(produtos_varejo, 'Picanha'))
