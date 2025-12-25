@@ -61,9 +61,9 @@ produtos_varejo = [
     }
 ]
 
-for produto in produtos_varejo:
+'''for produto in produtos_varejo:
     if produtos_varejo[produto] > 50:
-        print(f'{produto}: {produtos_varejo[produto]}')
+        print(f'{produto}: {produtos_varejo[produto]}')'''
 
 def buscador_de_produtos(lista_produtos, produto_procurado):
     
@@ -72,7 +72,5 @@ def buscador_de_produtos(lista_produtos, produto_procurado):
             return True
     return False
 
-
-    
-print(buscador_de_produtos(produtos_varejo, 'Picanha'))
+print((produtos_varejo[2]['produto']))
 
