@@ -61,9 +61,14 @@ produtos_varejo = [
     }
 ]
 
-for produto in produtos_varejo:
-    if produtos_varejo[produto] > 50:
-        print(f'{produto}: {produtos_varejo[produto]}')
+def maior_que_50(lista):
+    maiores = {}
+    for produto in lista:
+        if produto['valor'] > 50:
+            maiores[produto['produto']] = [f'ID: {produto['id']}', produto['valor']]
+    return maiores
+
+print(maior_que_50(produtos_varejo)) 
 
 
 def verificador_de_estoque(lista, id):
