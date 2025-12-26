@@ -61,16 +61,16 @@ produtos_varejo = [
     }
 ]
 
-'''for produto in produtos_varejo:
+for produto in produtos_varejo:
     if produtos_varejo[produto] > 50:
-        print(f'{produto}: {produtos_varejo[produto]}')'''
+        print(f'{produto}: {produtos_varejo[produto]}')
 
-def buscador_de_produtos(lista_produtos, produto_procurado):
+
+def verificador_de_estoque(lista, id):
+    estoque = lista[id-1]['estoque']
+    if estoque == 0:
+        return 'Este produto não está disponivel'
     
-    for produto in lista_produtos:
-        if produto == produto_procurado:
-            return True
-    return False
-
-print((produtos_varejo[2]['produto']))
-
+    return lista[id-1]['estoque']
+    
+print(verificador_de_estoque(produtos_varejo, 4))
