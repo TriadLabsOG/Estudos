@@ -33,7 +33,7 @@ Espaço de colaboração onde aplicamos o conhecimento em dupla:
 ![HTML](https://img.shields.io/badge/HTML-000?logo=html5&logoColor=white&style=for-the-badge)
 ![CSS](https://img.shields.io/badge/CSS-000?logo=css&logoColor=white&style=for-the-badge)
 ![GITHUB](https://img.shields.io/badge/GITHUB-000?logo=GITHUB&logoColor=white&style=for-the-badge)
-![SQL](https://img.shields.io/badge/json-000?logo=json&logoColor=white&style=for-the-badge)
+![JSON](https://img.shields.io/badge/json-000?logo=json&logoColor=white&style=for-the-badge)
 
 ---
 
