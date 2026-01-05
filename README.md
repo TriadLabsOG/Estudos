@@ -2,10 +2,6 @@
 
 Repositório dedicado ao aprendizado, abrangendo desde lógica de programação até o desenvolvimento de sistemas complexos.
 
-![Status](https://img.shields.io/badge/Status-Em_Desenvolvimento-blue?style=flat-square)
-![Maintained](https://img.shields.io/badge/Maintained%3F-yes-brightgreen?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square)
-
 ---
 
 ## 📂 Estrutura do Repositório
