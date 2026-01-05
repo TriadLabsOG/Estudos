@@ -10,11 +10,12 @@ Aqui dividimos nossos progressos em trilhas individuais e colaborativas:
 
 ### 👤 [Lucas](Lucas)
 Focado no aprendizado de:
-* Python
+* Python (Curso Em Video)
 
 ### 👤 [Gabriel](Gabriel)
 Focado no aprendizado de:
-* Python
+* Python (Curso Em Video)
+Proximo conteúdo:
 * Java
 
 ### 🤝 [Coop (Conjunto)](Coop)
