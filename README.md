@@ -15,6 +15,7 @@ Focado no aprendizado de:
 ### 👤 [Gabriel](Gabriel) | [Ver commits](https://github.com/TriadLabsOG/Estudos/commits/main/Gabriel)
 Focado no aprendizado de:
 * Python (Curso Em Video)
+
 Proximo conteúdo:
 * Java
 
