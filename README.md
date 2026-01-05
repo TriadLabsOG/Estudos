@@ -41,6 +41,7 @@ Espaço de colaboração onde aplicamos o conhecimento em dupla:
 1. Navegue até a pasta do membro desejado para ver os exercícios individuais.
 2. A pasta `/coop` contém os projetos que rodamos em conjunto (use o `main.py` da raiz se houver).
 3. Sinta-se à vontade para sugerir melhorias via **Pull Requests**.
+4. Tentar fazer tudo em inglês para melhorar a comunicação em inglês (PR, Code Review, Comentarios, etc...)
 
 ---
 
