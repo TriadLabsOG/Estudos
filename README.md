@@ -2,23 +2,27 @@
 
 Repositório dedicado ao aprendizado, abrangendo desde lógica de programação até o desenvolvimento de sistemas complexos.
 
+![Status](https://img.shields.io/badge/Status-Em_Desenvolvimento-blue?style=flat-square)
+![Maintained](https://img.shields.io/badge/Maintained%3F-yes-brightgreen?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square)
+
 ---
 
 ## 📂 Estrutura do Repositório
 
 Aqui dividimos nossos progressos em trilhas individuais e colaborativas:
 
-### 👤 [Lucas](Lucas)
+### 👤 [Lucas](Lucas) | [Ver commits](https://github.com/TriadLabsOG/Estudos/commits/main/Lucas)
 Focado no aprendizado de:
 * Python (Curso Em Video)
 
-### 👤 [Gabriel](Gabriel)
+### 👤 [Gabriel](Gabriel) | [Ver commits](https://github.com/TriadLabsOG/Estudos/commits/main/Gabriel)
 Focado no aprendizado de:
 * Python (Curso Em Video)
 Proximo conteúdo:
 * Java
 
-### 🤝 [Coop (Conjunto)](Coop)
+### 🤝 [Coop (Conjunto)](Coop) | [Ver commits](https://github.com/TriadLabsOG/Estudos/commits/main/Coop)
 Espaço de colaboração onde aplicamos o conhecimento em dupla:
 * **Projetos integrados:** Scripts maiores e desafios resolvidos em conjunto.
 * **Code Review:** Onde analisamos o código um do outro para melhoria contínua.
@@ -49,7 +53,8 @@ Espaço de colaboração onde aplicamos o conhecimento em dupla:
 1. **Foco no Aprendizado:** Sempre comente o código para que o outro entenda.
 2. **Pasta Coop:** Projetos em conjunto devem ser commitados apenas na `/coop`.
 3. **Sincronia:** Sempre faça `git pull` antes de começar para evitar conflitos.
-4. **Espaço Pessoal:** Respeite a pasta de estudos individual. Não edite arquivos alheios sem permissão do respectivo dono.
+4. **Commits:** Utilize mensagens claras. Ex: `feat: adiciona exercício de estrutura de repetição`.
+5. **Espaço Pessoal:** Respeite a pasta de estudos individual. Não edite arquivos alheios sem permissão do respectivo dono.
 
 ---
 <p align="center">
