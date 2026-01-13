@@ -1,0 +1,9 @@
+exercicio_57 = True
+exercicio_58 = True
+exercicio_59 = False
+exercicio_60 = False
+exercicio_61 = False
+exercicio_62 = False
+exercicio_63 = False
+exercicio_64 = False
+exercicio_65 = False
