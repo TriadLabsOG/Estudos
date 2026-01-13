@@ -88,9 +88,7 @@ Após o Merge, envie o áudio no grupo da dupla para transmitir a experiência h
 
 ---
 
-## 3. Protocolo de Gestão de Conhecimento (Dúvidas e Aprendizados)
-
-Para uma empresa (ou dupla) ser eficiente no assíncrono, a informação deve ser mastigada e enviada via **comentários na Issue**.
+## 3. Protocolo de Gestão de Conhecimento (Dúvidas)
 
 ### A. Como reportar uma Dúvida (Via Comentário)
 Se travar e o parceiro estiver offline, poste um comentário na Issue seguindo este padrão:
@@ -98,11 +96,6 @@ Se travar e o parceiro estiver offline, poste um comentário na Issue seguindo e
 2. **Expectativa:** "Eu queria que o código fizesse X, mas ele está retornando Y."
 3. **O Erro:** Cole o erro do terminal (Traceback) entre crases (ex: `NameError`).
 4. **O que já tentou:** "Já tentei mudar o tipo da variável e reiniciar o VS Code."
-
-### B. Como registrar um Aprendizado (Via Comentário)
-Sempre que descobrir algo novo ou uma "sacada" da aula teórica, registre na Issue:
-* **Formato:** `[INSIGHT] - Título curto`
-* **Exemplo:** `[INSIGHT] - O método .strip() não altera a variável original, ele apenas retorna uma cópia limpa!`
 
 ---
 
@@ -121,7 +114,7 @@ O código deve seguir a **PEP-8** para que ambos leiam com fluidez:
 
 * **A Sprint:** Nosso ciclo semanal de domingo a sábado.
 * **Planejamento:** No domingo, cria-se a Issue com o checklist de metas.
-* **Execução:** Durante a semana, cada um faz no seu tempo, alimentando a Issue com comentários de insights/bugs e abrindo PRs.
+* **Execução:** Durante a semana, cada um faz no seu tempo, alimentando a Issue com comentários de dúvidas/bugs e abrindo PRs.
 * **Fechamento:** A Sprint só é considerada "Finalizada" quando todas as Issues estão com status **Closed** e todos os Pull Requests foram aceitos na **Main**.
 
 ---
