@@ -16,7 +16,7 @@ Trabalhar assincronamente não é "estudar sozinho", é **colaborar em tempos di
 
 ## 2. O Ciclo de Trabalho Detalhado
 
-### Etapa 1: O Painel de Controle (A Issue)
+### Etapa A: O Painel de Controle (A Issue)
 A Issue funciona como o seu "Escritório Virtual". Uma **Sprint** é o nosso bloco de trabalho semanal. Vamos dividir o uso da Issue em duas partes: o **Descrição** (Contrato) e a **Comentários** (Execução).
 
 **1. Como abrir:** Sempre que iniciarem um novo módulo (ex: Condicionais), criem uma Issue que servirá de guia.
@@ -39,7 +39,7 @@ Durante a semana. Utilize os **comentários** da Issue para registrar o progress
 
 ---
 
-### Etapa 2: Desenvolvimento Local e Commits (O Código)
+### Etapa B: Desenvolvimento Local e Commits (O Código)
 O trabalho de código deve ser limpo e isolado. Nunca mexa na branch `main` diretamente. 
 
 1. **Branches Isoladas:** Cada bloco de exercícios deve ter sua branch própria. Isso permite que você trabalhe em algo novo sem estragar o código estável na Main.
@@ -50,7 +50,7 @@ O trabalho de código deve ser limpo e isolado. Nunca mexa na branch `main` dire
     * `docs: atualiza manual de operação ou anotações` (Mudança apenas em texto).
     * `refactor: melhora legibilidade do código sem mudar lógica` (Limpeza).
 
-### Etapa 3: Pull Requests e Code Review (A Auditoria)
+### Etapa C: Pull Requests e Code Review (A Auditoria)
 O Pull Request (PR) é onde a revisão acontece. É a conversa sobre o código antes dele ser aceito.
 
 **1. Como abrir o PR (Template de Descrição):**
@@ -68,6 +68,9 @@ Resolvi os desafios de manipulação de string. Foquei em aplicar os métodos `.
 - [ ] O código funciona e foi testado no terminal.
 - [ ] Removi `prints` de teste e comentários desnecessários.
 ```
+**⚠️ Enquanto o PR não estiver completo, ele deve ser salvo como um ⚠️DRAFT⚠️ (RASCUNHO)**
+
+---
 
 **2. O Papel do Reviewer (Como fazer o Code Review):**
 O parceiro deve analisar o código e deixar comentários em linhas específicas:
