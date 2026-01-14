@@ -1,4 +1,8 @@
 # Exercício Python 058: Melhore o jogo do DESAFIO 028 onde o computador vai "pensar" em um número entre 0 e 10. Só que agora o jogador vai tentar adivinhar até acertar, mostrando no final quantos palpites foram necessários para vencer.
+
+"""
+ANTIGO
+
 from time import sleep
 from random import randint
 
@@ -17,3 +21,4 @@ while num != numero_aleatorio:
     sleep(1)
     num = int(input('- Qual foi o número que eu pensei? '))
 print('- Você acertou, parabéns!')
+"""

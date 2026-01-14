@@ -1,6 +1,8 @@
 # Exercicio 059
 # Input de 2 números e MENU
 
+"""
+ANTIGO
 
 # Variavel das opções, com o valor de None ao inves de 0 (Já que vou usar o 0 em outra opção)
 opcoes = None
@@ -59,3 +61,4 @@ while opcoes != 5:
         break
     else:
         print("ERRO: Opção invalida")
+"""

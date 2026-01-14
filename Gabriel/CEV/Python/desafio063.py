@@ -1,3 +1,6 @@
+"""
+ANTIGO
+
 print('---- Sequencia de Fibonacci ----')
 
 # Input de solicitação de quantos termos serão necessarios printar
@@ -14,3 +17,4 @@ while termos != 0:
     n1 = n2
     n2 = n3
     termos -= 1
+"""

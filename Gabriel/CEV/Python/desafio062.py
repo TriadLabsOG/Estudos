@@ -1,3 +1,6 @@
+"""
+ANTIGO
+
 # Input do primeiro termo e da razão pra poder fazer os calculos.
 primeiro_termo = int(input('Digite o primeiro termo da P.A: '))
 razão = int(input('Digite a razão da P.A: '))
@@ -27,3 +30,4 @@ while quantidade_de_termos_iniciais != 0:
 
 # Quantidade de termos mostrados (Autoexplicativo kkk)
 print(f'Quantidade de termos mostrados: {termos}')
+"""
