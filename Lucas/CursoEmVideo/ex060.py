@@ -1,7 +1,15 @@
-import math
 
 numero = int(input('Digite um valor: '))
 
-fatorial = math.factorial(numero)
+contador = numero
 
-resultado = print(f'O fatorial de {numero}! é igual a {fatorial}')
+acumulativo = 1
+
+while contador > 0:
+    print(f'{acumulativo}', end= ' -> ' if contador > 1 else ' -> FIM')
+
+    acumulativo *= contador
+
+    contador -= 1
+
+
