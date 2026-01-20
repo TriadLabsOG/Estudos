@@ -25,4 +25,4 @@ while computador != escolha:
     if escolha > 1:
         tentativas += 1
 
-print(f'Você acertou com {tentativas} tentativas')
+print(f'Parabens, você acertou com {tentativas} tentativas!')
