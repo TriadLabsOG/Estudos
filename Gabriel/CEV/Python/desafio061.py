@@ -6,6 +6,14 @@
 # da progressão usando a estrutura while.
 # ==========================================================
 
+PRIMEIRO_TERMO = int(input('Digite o primeiro termo da P.A: '))
+RAZAO = int(input('Digite a razão da P.A: '))
+
+termo = PRIMEIRO_TERMO
+
+while termo != (PRIMEIRO_TERMO + RAZAO * 10):
+    print(f'{termo} > ', end='')
+    termo += RAZAO
 
 """
 ANTIGO
