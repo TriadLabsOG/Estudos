@@ -1,3 +1,18 @@
+# Desafio 062: Melhore o DESAFIO 061, perguntando para o usuário se ele quer mostrar mais alguns termos. O programa encerra quando ele disser que quer mostrar 0 termos.
+PRIMEIRO_TERMO = int(input('Digite o primeiro termo da P.A: '))
+RAZAO = int(input('Digite a razão da P.A: '))
+quantidade_de_termos = 10
+
+termo = PRIMEIRO_TERMO
+
+while termo != (PRIMEIRO_TERMO + RAZAO * quantidade_de_termos):
+    print(f'{termo} > ', end='')
+    termo += RAZAO
+    if termo == (PRIMEIRO_TERMO + RAZAO * quantidade_de_termos):
+        print('FIM')
+        print('\nDigite mais quantos termos quer ver.')
+        quantidade_de_termos += int(input('DIGITE "0" SE NÃO FOR NENHUM: '))
+
 """
 ANTIGO
 
