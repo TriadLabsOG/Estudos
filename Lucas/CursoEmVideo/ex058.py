@@ -14,8 +14,15 @@ sleep(3)
 escolha = int(input('Qual valor você acha que o computador escolheu? '))
 tentativas = 1
 while computador != escolha:
-    print('Você errou, tente novamente!')
+    
+    if escolha > computador:
+        print('Menos, tente novamente!')
+    elif escolha < computador:
+        print('Mais, tente novamente!')
+
     escolha = int(input('Qual valor você acha que o computador escolheu? '))
+    
     if escolha > 1:
         tentativas += 1
+
 print(f'Você acertou com {tentativas} tentativas')
