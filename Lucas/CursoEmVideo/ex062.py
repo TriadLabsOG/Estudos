@@ -3,22 +3,21 @@
 termo = int(input('Digite o primeiro termo: '))
 razao = int(input('Digite a razão: '))
 
-contador = 0
+contador = 0 # O contador de quantos numeros apareceram
+total_termos = 0 # Começamos com nenhum
+mais_termos = 10 # Inicialmente começamos com 10 termos na P.A
 
-while contador <= 10:
-    print(f'{termo}', end= ' -> ' if contador < 10 else ' -> FIM!')
+while mais_termos != 0:  # Enquanto o usuario não digitar zero, calculamos a P.A
+    total_termos += mais_termos
 
-    termo += razao
+    while contador <= total_termos:
+        print(f'{termo} -> ', end= '')
+        termo += razao # Enquanto o contador não chegar em 10, calculamos a P.A
+        contador += 1 # Sempre que fazemos o termo + razão, adicionamos um número ao contador
 
-    contador += 1
+    print('PAUSA') # Ira pausar a exibicção dos numeros quando chegar em 10
 
-resposta = str(input('Você quer descobrir o proximo termo?[S/N] '))
+    mais_termos = int(input('Quantos termos você quer adicionar a mais? ')) # Se o usuario digitar um valor diferente do que 0, o programa ira voltar ao primeiro while
 
-while resposta == 'S':
-    print(f'{termo}')
+print(f'Fim da progressão aritimetica com {total_termos} termos exibidos') # Quando o usuario digitar 0, ira mostrar esse print com o tanto de termos exibidos
 
-    termo += razao
-
-    contador += 1
-
-    resposta = str(input('Você quer descobrir o proximo termo?[S/N] '))
