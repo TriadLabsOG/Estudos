@@ -1,3 +1,23 @@
+# ==========================================================
+# DESAFIO 061: Progressão Aritmética v2.0
+#
+# Enunciado: Refaça o DESAFIO 051, lendo o primeiro termo 
+# e a razão de uma PA, mostrando os 10 primeiros termos 
+# da progressão usando a estrutura while.
+# ==========================================================
+
+PRIMEIRO_TERMO = int(input('Digite o primeiro termo da P.A: '))
+RAZAO = int(input('Digite a razão da P.A: '))
+
+termo = PRIMEIRO_TERMO
+
+while termo != (PRIMEIRO_TERMO + RAZAO * 10):
+    print(f'{termo} > ', end='')
+    termo += RAZAO
+
+"""
+ANTIGO
+
 # Input do primeiro termo e da razão pra poder fazer os calculos.
 primeiro_termo = int(input('Digite o primeiro termo da P.A: '))
 razão = int(input('Digite a razão da P.A: '))
@@ -15,3 +35,4 @@ while quantidade_de_termos_iniciais != 1:
     print(f'{primeiro_termo}  > ', end='')
     quantidade_de_termos_iniciais -= 1 
 print('Fim')
+"""

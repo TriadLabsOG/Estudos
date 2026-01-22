@@ -1,5 +1,22 @@
-# Exercicio 60: Fatorial
-# Exemplo : 5! = 5 x 4 x 3 x 2 x 1 = 100
+# DESAFIO 060: Cálculo do Fatorial
+
+# Faça um programa que leia um número qualquer e mostre 
+# o seu fatorial.
+
+# Exemplo: 5! = 5 x 4 x 3 x 2 x 1 = 120
+
+numero = int(input('Digite o número: '))
+
+acumulador = numero
+
+while numero != 1:
+	numero -= 1
+	acumulador = acumulador * numero
+
+print(acumulador)
+
+"""
+ANTIGO
 
 numero_input = int(input("Digite o número: "))
 
@@ -16,3 +33,4 @@ while numeros != 0:
 		print(f'{numeros} x ', end='')
 		
 	numeros -= 1
+"""
