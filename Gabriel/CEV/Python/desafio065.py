@@ -1,5 +1,21 @@
 # Exercício Python 065: Crie um programa que leia vários números inteiros pelo teclado. No final da execução, mostre a média entre todos os valores e qual foi o maior e o menor valores lidos. O programa deve perguntar ao usuário se ele quer ou não continuar a digitar valores.
 
+lista = []
+numero = 0
+continuar = '.'
+
+while True:
+    numero = lista.append(int(input('Digite um número: ')))
+    while continuar not in 'SN':
+        continuar = input('Deseja continuar [S/N]: ').strip().upper()
+    if continuar == 'N':
+        break
+    continuar = '.'
+
+print(f'MÉDIA: {sum(lista) / len(lista):.2f}')
+print(f'MAIOR: {max(lista)}')
+print(f'MENOR: {min(lista)}')
+
 """
 ANTIGO
 
