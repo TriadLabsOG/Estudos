@@ -1,4 +1,21 @@
 # Exercício Python 066: Crie um programa que leia números inteiros pelo teclado. O programa só vai parar quando o usuário digitar o valor 999, que é a condição de parada. No final, mostre quantos números foram digitados e qual foi a soma entre elas (desconsiderando o flag).
+
+lista = []
+numero = 0
+print("DIGITE '999' PARA PARAR")
+
+while True:
+    numero = int(input('Digite um número: '))
+    if numero == 999:
+        break
+    lista.append(numero)
+
+print(f'QUANTOS NUMEROS FORAM DIGITADOS: {len(lista)}')
+print(f'SOMA DOS NÚMEROS: {sum(lista)}')
+
+'''
+ANTIGO
+
 soma = 0
 while True:
     numero = int(input('Digite seu número: '))
@@ -7,3 +24,4 @@ while True:
     elif numero == 999:
         break
 print(f'A soma dos números é {soma}')
+'''
