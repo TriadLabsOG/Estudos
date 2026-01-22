@@ -1,30 +1,40 @@
-valor_1 = int(input('Digite um valor: '))
-valor_2 = int(input('Digite outro valor: '))
-escolha = 0
-while escolha < 5:
-    print('-'* 20)
-    print('Qual opção você ira escolher')
-    print('[ 1 ] Somar')
-    print('[ 2 ] Multiplicar')
-    print('[ 3 ] Maior')
-    print('[ 4 ] Novos números')
-    print('[ 5 ] Sair do programa')
-    print('-' * 20)
-    escolha = int(input('Digite a opção a seguir: '))
+import sys
 
-    if escolha == 1:
-        print(f'{valor_1} + {valor_2} = {valor_1 + valor_2}')
-    elif escolha == 2:
-        print(f'{valor_1} x {valor_2} = {valor_1 * valor_2}')
-    elif escolha == 3:
-        if valor_1 > valor_2:
-            print(f'O número {valor_1} é o maior')
-        elif valor_2 > valor_1:
-            print(f'O número {valor_2} é o maior')
-        else:
-            print('Os dois valores são os mesmos')
+valor1 = int(input('Digite um valor: '))
+valor2 = int(input('Digite um valor: '))
+
+print('Esta são suas opções')
+print('--- [1] Soma ---')
+print('--- [2] Multiplicar ---')
+print('--- [3] Maior ---')
+print('--- [4] Novos numeros ---')
+print('--- [5] Sair do programa')
+
+escolha = int(input('Qual você vai escolher? '))
+
+while escolha == 4:
+    valor1 = int(input('Digite um valor: '))
+    valor2 = int(input('Digite um valor: '))
+    escolha = int(input('Qual você vai escolher? '))
+
+while escolha >= 6:
+    print('Opção invalida, tente novamente')
+    escolha = int(input('Qual você vai escolher? '))
+
+if escolha == 1:
+    print(f'a soma de {valor1} + {valor2} é igual a {valor1 + valor2}') # Soma os dois valores digitado
+
+if escolha == 2:
+    print(f'O produto entre {valor1} e {valor2} é igual a {valor1 * valor2}') # Multiplica os dois valores digitados
+
+if escolha == 3:
+    if valor1 > valor2:
+        print(f'O maior valor é o {valor1}')
+    elif valor2 > valor1:
+        print(f'O maior valor é o {valor2}')
     else:
-        valor_1 = int(input('Digite um valor: '))
-        valor_2 = int(input('Digite outro valor: '))
-        escolha = int(input('Digite a opção a seguir: '))
-    
+        ('Os dois valores sao iguais')
+
+
+if escolha == 5:
+    sys.exit()

@@ -14,7 +14,7 @@ while resposta == 'S':
     
     lista.append(numero)
     
-    resposta = str(input('Você deseja continuar a digitar valores?[S/N] ')).capitalize()
+    resposta = str(input('Você deseja continuar a digitar valores?[S/N] ')).strip().upper()[0]
 
     media_total += 1
 
