@@ -25,9 +25,8 @@ while True:
         valor_barato = valor_produto
         produto_barato = nome_produto
 
-    resposta = str(input('Você quer continuar a digitar produtos? [S/N]')).strip().upper()[0]
-
-    if resposta == 'N':
+    
+    if input('Você quer continuar a digitar produtos? [S/N]').strip().upper()[0] == 'N':
         break
     
 
