@@ -6,10 +6,20 @@ while len(lista) < 5:
     lista.append(int(input('Digite um valor: ')))
 
 # Ordena a lista do menor para o maior
-lista.sort()
+lista_arrumada = sorted(lista)
 
-# Menor
-print(f'MENOR: {lista[0]}')
+# String para o print
+menor = f'O menor numero é {lista_arrumada[0]} e ele aparece nas posiçoes '
+maior = f'O maior numero é {lista_arrumada[-1]} e ele aparece nas posições '
 
-# Maior
-print(f'MAIOR: {lista[-1]}')
+for i in range(0, len(lista)):
+    # Concatena as posições do menor na string
+    if lista[i] == lista_arrumada[0]:
+        menor += (f'{i}, ')
+    # Concatena as posições do maior na string
+    if lista[i] == lista_arrumada[-1]:
+        maior += (f'{i}, ')
+
+# Print
+print(menor[:-2] + '.')
+print(maior[:-2] + '.')
