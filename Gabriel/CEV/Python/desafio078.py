@@ -3,6 +3,13 @@
 # Logica para ler os 5 valores
 lista = []
 while len(lista) < 5:
-    lista.append(input('Digite um valor: '))
+    lista.append(int(input('Digite um valor: ')))
 
-# Logica para ordenar do maior até o menor
+# Ordena a lista do menor para o maior
+lista.sort()
+
+# Menor
+print(f'MENOR: {lista[0]}')
+
+# Maior
+print(f'MAIOR: {lista[-1]}')
