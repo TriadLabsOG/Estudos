@@ -19,6 +19,10 @@ Focado no aprendizado de:
 Proximo conteúdo:
 * Java
 
+### 👤 [Thais](Thais) | [Ver commits](https://github.com/TriadLabsOG/Estudos/commits/main/Thais)
+Focado no aprendizado de:
+* Javascript (Curso Em Video)
+
 ### 🤝 [Coop (Conjunto)](Coop) | [Ver commits](https://github.com/TriadLabsOG/Estudos/commits/main/Coop)
 Espaço de colaboração onde aplicamos o conhecimento em dupla:
 * **Projetos integrados:** Scripts maiores e desafios resolvidos em conjunto.
