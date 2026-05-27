@@ -3,26 +3,49 @@ name: Groq Automated Code Review
 on:
   pull_request:
     types: [opened, synchronize]
+  issue_comment:
+    types: [created]
 
 jobs:
   review:
+    # Só roda se for um evento de PR normal OU se for um comentário dentro de um PR contendo "/review"
+    if: |
+      github.event_name == 'pull_request' ||
+      (github.event.issue.pull_request && github.event.comment.body == '/review')
+    
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
       contents: read
+      issues: write
 
     steps:
-      - name: Checkout Code
+      - name: Checkout Code (PR Event)
+        if: github.event_name == 'pull_request'
+        uses: actions/actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Se for por comentário, precisamos de um passo extra para clonar a branch correta do PR
+      - name: Checkout Code (Comment Event)
+        if: github.event_name == 'issue_comment'
         uses: actions/checkout@v4
         with:
+          repository: ${{ github.event.repository.full_name }}
+          ref: refs/pull/${{ github.event.issue.number }}/head
           fetch-depth: 0
 
       - name: Get PR Diff
         id: get_diff
         run: |
-          # Pega a diferença entre a branch atual e a branch de destino
-          git diff origin/${{ github.base_ref }}...HEAD > pr_diff.txt
-          # Verifica se o diff não está vazio
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            git diff origin/${{ github.base_ref }}...HEAD > pr_diff.txt
+          else
+            # No evento de comentário, precisamos buscar a branch destino (main/master) para comparar
+            git fetch origin ${{ github.event.issue.pull_request.base.ref }}
+            git diff origin/${{ github.event.issue.pull_request.base.ref }}...HEAD > pr_diff.txt
+          fi
+          
           if [ ! -s pr_diff.txt ]; then
             echo "Nenhuma alteração de código detectada."
             exit 0
@@ -31,7 +54,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-node-version: '20'
+          node-version: '20'
 
       - name: Run Groq Review Script
         id: groq_review
@@ -45,7 +68,6 @@ jobs:
             const diff = fs.readFileSync('pr_diff.txt', 'utf8');
             if (!diff.trim()) return;
 
-            // Usando o modelo Llama 3 70b que é excelente para código e roda rápido no Groq
             const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
               method: 'POST',
               headers: {
@@ -86,3 +108,4 @@ jobs:
         if: success()
         with:
           filePath: 'review_result.md'
+          pr_number: ${{ github.event.issue.number }} # Garante que o comentário vai pro PR certo no evento de comment
