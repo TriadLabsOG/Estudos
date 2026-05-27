@@ -36,7 +36,7 @@ jobs:
           ref: refs/pull/${{ github.event.issue.number }}/head
           fetch-depth: 0
 
-      - name: Get PR Diff and Commits
+      - name: Get PR Commits and Isolated Diffs
         id: get_diff
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -52,13 +52,25 @@ jobs:
           echo "Comparando contra a branch base: $BASE_REF"
           git fetch origin $BASE_REF
           
-          git diff origin/$BASE_REF...HEAD > pr_diff.txt
-          gh pr view $PR_NUMBER --repo ${{ github.repository }} --json commits -q '.commits[].messageHeadline' > pr_commits.txt
+          echo "=== INÍCIO DO HISTÓRICO DE COMMITS ===" > pr_structured_history.txt
           
-          if [ ! -s pr_diff.txt ]; then
-            echo "Nenhuma alteração de código detectada."
+          COMMIT_HASHES=$(git log origin/$BASE_REF..HEAD --reverse --format="%H")
+          
+          if [ -z "$COMMIT_HASHES" ]; then
+            echo "Nenhum commit detectado."
             exit 0
           fi
+          
+          for hash in $COMMIT_HASHES; do
+            echo "----------------------------------------" >> pr_structured_history.txt
+            echo "📌 HASH_COMMIT: $hash" >> pr_structured_history.txt
+            echo "📝 MENSAGEM: $(git log -1 --format="%s" $hash)" >> pr_structured_history.txt
+            echo "💻 ALTERAÇÕES DESTE COMMIT:" >> pr_structured_history.txt
+            git show --format="" --patch $hash >> pr_structured_history.txt
+            echo "----------------------------------------" >> pr_structured_history.txt
+          done
+          
+          echo "=== FIM DO HISTÓRICO ===" >> pr_structured_history.txt
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -74,10 +86,8 @@ jobs:
           const fs = require('fs');
 
           async function run() {
-            const diff = fs.readFileSync('pr_diff.txt', 'utf8');
-            if (!diff.trim()) return;
-
-            const commits = fs.existsSync('pr_commits.txt') ? fs.readFileSync('pr_commits.txt', 'utf8') : 'Nenhum commit encontrado.';
+            if (!fs.existsSync('pr_structured_history.txt')) return;
+            const history = fs.readFileSync('pr_structured_history.txt', 'utf8');
 
             const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
               method: 'POST',
@@ -90,11 +100,11 @@ jobs:
                 messages: [
                   {
                     role: 'system',
-                    content: 'Você é um mentor de código empático e prático para Gabriel (droppxr), Lucas (Lucaspierre) e Thais, que estão aprendendo a programar do zero.\n\nREGRAS CRÍTICAS E INQUEBRÁVEIS:\n1. NÃO reescreva o código inteiro deles. Foque em feedbacks cirúrgicos e pontuais.\n2. VOCÊ PODE sugerir conceitos novos ou mais avançados (como funções `def`, `try/except`, etc.), mas NÃO reconstrua o código usando isso. Apenas cite a melhoria de forma curta entre parênteses para plantar a semente do conhecimento. Exemplo: "(Poderia usar uma função ao invés disso)" ou "(Aqui caberia um tratamento com try/except)".\n3. Seja direto ao ponto, sem introduções longas ou explicações conceituais genéricas.\n\nESTRUTURA OBRIGATÓRIA DA RESPOSTA (Siga estritamente, em Markdown pt-BR):\n\n### 📝 Análise de Commits\nListe apenas os commits reais enviados que estão fora do padrão Conventional Commits (ignore merges). Mostre de forma curta como corrigir.\n\n### 💻 Análise de Código\nPara cada arquivo modificado, use exatamente esta estrutura por item:\n- **Onde:** Linha ou variável afetada.\n- **Feedback:** O que pode melhorar e o motivo (se couber um conceito novo, use a dica curta entre parênteses).\n- **Como ficaria:** Mostre apenas o trecho pequeno com a sugestão aplicada.\n\n### 📊 Veredito Final e Nota\nCom base no nível de aprendizado deles, avalie se o código está aprovado ou se os erros encontrados são muito impactantes e precisam ser alterados antes do merge.\nForneça uma nota de 0 a 5 seguindo RIGOROSAMENTE esta escala:\n- **Nota 0**: Perfeito! Código limpo, correto e pronto para ser aprovado.\n- **Nota 1 ou 2**: Muito bom! Apenas pequenos detalhes de estilo ou PEP 8. Está aprovado, não precisa alterar nada.\n- **Nota 3 ou 4**: Erros importantes de lógica ou comportamento. É recomendável corrigir esses pontos antes de aprovar.\n- **Nota 5**: Código com problemas críticos ou muito confuso. Precisa ajustar e refazer tudo.'
+                    content: 'Análise de código focada em mentoria empática e ultra-específica para Gabriel, Lucas e Thais.\n\nREGRAS DE CONTEÚDO:\n1. NÃO misture os commits. Analise cada um separadamente na ordem enviada.\n2. Para novos conceitos, use apenas dicas curtas entre parênteses, ex: "(Poderia usar um dicionário aqui)". Não mude a estrutura do código além disso.\n3. Seja direto e evite enrolações teóricas.\n\nESCALA DE NOTAS VALIDA (0 a 5):\n- Nota 0: Perfeito/Aprovado (sem retoques).\n- Nota 1 ou 2: Muito Bom/Aprovado (detalhes bobos de formatação ou estilo, não mudam a lógica).\n- Nota 3 ou 4: Erros Importantes (lógica confusa ou comportamento errado que você recomenda ajustar antes do merge).\n- Nota 5: Crítico (código quebrou ou está completamente fora do proposto).\n\nESTRUTURA OBRIGATÓRIA DA RESPOSTA (Siga estritamente, em Markdown pt-BR):\n\nPara CADA commit:\n\n### 📌 Commit: `[Mensagem Original]`\n- **Mensagem de Commit:** (Avalie brevemente o Conventional Commits).\n- **Análise do Código:**\n  - **Onde:** Linha, variável ou arquivo afetado.\n  - **Feedback:** O que melhorar e o motivo.\n  - **Como ficaria:** Trecho pequeno modificado.\n- **Nota do Commit e Significado Prático:** [Nota de 0 a 5] - [Explique de forma muito clara e customizada o que essa nota significa para este código específico. Justifique o critério e explique se o erro é bobo ou se realmente impacta o funcionamento].\n\n---\n\n### 📊 Veredito Geral do Pull Request\n- **Status Final:** (Aprovado / Reprovado para Merge)\n- **Nota Geral do PR:** [Média de 0 a 5] - [Resumo rápido do critério final]'
                   },
                   {
                     role: 'user',
-                    content: `Aqui estão os dados do Pull Request para análise:\n\n### Mensagens de Commit enviadas:\n\`\`\`\n${commits}\n\`\`\`\n\n### Git Diff do Código:\n\`\`\`diff\n${diff}\n\`\`\``
+                    content: `Aqui estão os commits e os respectivos códigos isolados enviados no Pull Request:\n\n${history}`
                   }
                 ],
                 temperature: 0.2
