@@ -37,14 +37,20 @@ jobs:
 
       - name: Get PR Diff
         id: get_diff
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Necessário para rodar comandos do GitHub CLI
         run: |
+          # Descobre a branch de destino baseando-se no evento
           if [ "${{ github.event_name }}" = "pull_request" ]; then
-            git diff origin/${{ github.base_ref }}...HEAD > pr_diff.txt
+            BASE_REF="${{ github.base_ref }}"
           else
-            # No evento de comentário, precisamos buscar a branch destino (main/master) para comparar
-            git fetch origin ${{ github.event.issue.pull_request.base.ref }}
-            git diff origin/${{ github.event.issue.pull_request.base.ref }}...HEAD > pr_diff.txt
+            # No evento de comentário, usa o CLI do GitHub para descobrir a branch base
+            BASE_REF=$(gh pr view ${{ github.event.issue.number }} --repo ${{ github.repository }} --json baseRefName -q .baseRefName)
           fi
+          
+          echo "Comparando contra a branch base: $BASE_REF"
+          git fetch origin $BASE_REF
+          git diff origin/$BASE_REF...HEAD > pr_diff.txt
           
           if [ ! -s pr_diff.txt ]; then
             echo "Nenhuma alteração de código detectada."
@@ -108,4 +114,4 @@ jobs:
         if: success()
         with:
           filePath: 'review_result.md'
-          pr_number: ${{ github.event.issue.number }} # Garante que o comentário vai pro PR certo no evento de comment
+          pr_number: ${{ github.event.issue.number }}
