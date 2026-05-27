@@ -22,7 +22,7 @@ jobs:
     steps:
       - name: Checkout Code (PR Event)
         if: github.event_name == 'pull_request'
-        uses: actions/actions/checkout@v4
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
