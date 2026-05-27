@@ -6,6 +6,10 @@ on:
   issue_comment:
     types: [created]
 
+# Força o runner do GitHub a executar todas as Actions internas diretamente no Node 24
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 jobs:
   review:
     # Só roda se for um evento de PR normal OU se for um comentário dentro de um PR contendo "/review"
@@ -60,7 +64,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
 
       - name: Run Groq Review Script
         id: groq_review
@@ -81,7 +85,7 @@ jobs:
                 'Content-Type': 'application/json'
               },
               body: JSON.stringify({
-                model: 'llama3-70b-8192',
+                model: 'llama-3.3-70b-versatile', // <--- Atualizado para o modelo atualizado e ativo do Groq
                 messages: [
                   {
                     role: 'system',
