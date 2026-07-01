@@ -1,6 +1,0 @@
-nome = str(input('Qual é seu nome completo: ')).strip()
-print('Analisando seu nome...')
-print(f'Seu nome completo em maiusculo é {nome.upper()}')
-print(f'Seu nome completo em minusculo é {nome.lower()}')
-print(f'Seu nome completo tem {len(nome) -nome.count(' ')} caracteres')
-print(f'Seu primeiro nome tem {nome.find(' ')} caracteres')
