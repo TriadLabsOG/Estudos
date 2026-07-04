@@ -13,28 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Bem-vindo.md",
+                "file": "Comandos Python.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Bem-vindo"
-            }
-          }
-        ]
-      },
-      {
-        "id": "2c51bd3be36c2e38",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "0de709117b45f7f1",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Visualização em gráfico"
+              "title": "Comandos Python"
             }
           }
         ]
@@ -201,6 +185,7 @@
   },
   "active": "39278bcf5f58821c",
   "lastOpenFiles": [
-    "Bem-vindo.md"
+    "Bem-vindo.md",
+    "Comandos Python.md"
   ]
 }
